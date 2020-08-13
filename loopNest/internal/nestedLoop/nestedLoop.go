@@ -25,13 +25,20 @@ func min(a, b int) int {
 
 func nestedSequential(size int) {
 
-	loopSize := 2
+	loopSize := size / 10
 
 	i, j, x, y := 0, 0, 0, 0
 
-	a := [100][100]uint{}
-	b, c := [100]uint{}, [100]uint{}
-	n := 100
+	a := make([][]int, size)
+	for i := range a {
+		a[i] = make([]int, size)
+	}
+
+	b := make([]int, size)
+
+	c := make([]int, size)
+	n := size
+
 	for i = 0; i < n; i += loopSize {
 		c[i] = 0
 		c[i+1] = 0

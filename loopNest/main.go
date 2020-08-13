@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
+	// See: https://en.wikipedia.org/wiki/Loop_nest_optimization
 
-	problemSize := 1000000000
+	problemSize := 1000
 
 	standardLoop.Run(problemSize)
 	nestedLoop.Run(problemSize)
