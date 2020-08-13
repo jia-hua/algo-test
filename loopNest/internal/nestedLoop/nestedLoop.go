@@ -27,13 +27,10 @@ func nestedSequential(size int) {
 
 	loopSize := 2
 
-	i := 0
-	j := 0
-	x := 0
-	y := 0
+	i, j, x, y := 0, 0, 0, 0
+
 	a := [100][100]uint{}
-	b := [100]uint{}
-	c := [100]uint{}
+	b, c := [100]uint{}, [100]uint{}
 	n := 100
 	for i = 0; i < n; i += loopSize {
 		c[i] = 0

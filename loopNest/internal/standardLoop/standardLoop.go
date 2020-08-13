@@ -18,11 +18,9 @@ func Run(size int) {
 
 func bigSequential(size int) {
 
-	i := 0
-	j := 0
+	i, j := 0, 0
 	a := [100][100]uint{}
-	b := [100]uint{}
-	c := [100]uint{}
+	b, c := [100]uint{}, [100]uint{}
 	n := 100
 	for i = 0; i < n; i++ {
 		c[i] = 0
