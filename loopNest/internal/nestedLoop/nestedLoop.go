@@ -6,7 +6,7 @@ import (
 )
 
 // Run a nested loop, and see how much time it takes to do the job
-func Run(size int) {
+func Run(size int) time.Duration {
 	start := time.Now()
 	fmt.Println("nested loop")
 
@@ -14,6 +14,8 @@ func Run(size int) {
 
 	elapsed := time.Now().Sub(start)
 	fmt.Println("------ nested duration = ", elapsed)
+
+	return elapsed
 }
 
 func min(a, b int) int {
