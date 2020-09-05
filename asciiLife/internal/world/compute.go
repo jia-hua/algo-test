@@ -2,23 +2,23 @@ package world
 
 // NextStep compute next state of the world
 func (w *World) NextStep() {
-	futureData := make([]bool, len(*w.data))
-	copy(futureData, *(w.data))
+	futureData := make([]bool, len(w.data))
+	copy(futureData, w.data)
 
 	for j := 1; j < w.y-1; j++ {
 		for i := 1; i < w.x-1; i++ {
 			subGrid := []bool{}
 			x := j*w.x + i
-			subGrid = append(subGrid, (*w.data)[x-w.x-1:x-w.x+2]...)
-			subGrid = append(subGrid, (*w.data)[x-1:x+2]...)
-			subGrid = append(subGrid, (*w.data)[x+w.x-1:x+w.x+2]...)
+			subGrid = append(subGrid, w.data[x-w.x-1:x-w.x+2]...)
+			subGrid = append(subGrid, w.data[x-1:x+2]...)
+			subGrid = append(subGrid, w.data[x+w.x-1:x+w.x+2]...)
 
 			cellNextState := NextCellStep(subGrid)
 			futureData[x] = cellNextState
 		}
 	}
 
-	w.data = &futureData
+	w.data = futureData
 }
 
 // NextCellStep compute the next state of the center of a subGrid (3x3)

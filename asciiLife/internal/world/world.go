@@ -12,7 +12,7 @@ type World struct {
 	emptySymbol  string
 	lifeSymbol   string
 	stepDuration time.Duration
-	data         *[]bool
+	data         []bool
 }
 
 // DefaultWorld is a utility function to instanciate a default world
@@ -23,20 +23,20 @@ func DefaultWorld() *World {
 		emptySymbol:  ".",
 		lifeSymbol:   "o",
 		stepDuration: time.Second,
-		data:         &[]bool{},
+		data:         []bool{},
 	}
 	size := result.x * result.y
 	for i := 0; i < size; i++ {
-		temp := append(*result.data, false)
-		result.data = &temp
+		temp := append(result.data, false)
+		result.data = temp
 	}
 
 	// planner
-	(*result.data)[(10*result.x)+10] = true
-	(*result.data)[(10*result.x)+11] = true
-	(*result.data)[(10*result.x)+12] = true
-	(*result.data)[(9*result.x)+12] = true
-	(*result.data)[(8*result.x)+11] = true
+	result.data[(10*result.x)+10] = true
+	result.data[(10*result.x)+11] = true
+	result.data[(10*result.x)+12] = true
+	result.data[(9*result.x)+12] = true
+	result.data[(8*result.x)+11] = true
 
 	// periodic
 	// (*result.data)[(10*result.x)+9] = true
@@ -51,7 +51,7 @@ func (w *World) Print() {
 	for j := 0; j < w.y; j++ {
 		offset := j * w.x
 		line := []string{}
-		for _, curr := range (*w.data)[offset : offset+w.y] {
+		for _, curr := range w.data[offset : offset+w.y] {
 			if curr {
 				line = append(line, w.lifeSymbol)
 			} else {
