@@ -1,2 +1,2 @@
 # algo-test
-test algorithms
+Test algorithms
